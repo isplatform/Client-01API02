@@ -45,13 +45,13 @@ class SolicitationController {
         else if (intentName == "kit.grande") {
 
             const item = new SolicitationModel()
-            item.massas = request.queryResult.parameters['massas']
-            item.recheio = request.queryResult.parameters['recheio']
-            item.kitGrande = request.queryResult.parameters['kitGrande']
-            item.nomeCliente = request.queryResult.parameters['nomeCliente']
-            item.cep = request.queryResult.parameters['cep']
-            item.quantidade = request.queryResult.parameters['recheio']
-            item.data = request.queryResult.parameters['data']
+            item.massas = request.queryResult.outputContexts.parameters['massas']
+            item.recheio = request.queryResult.outputContexts.parameters['recheio']
+            item.kitGrande = request.queryResult.outputContexts.parameters['kitGrande']
+            item.nomeCliente = request.queryResult.outputContexts.parameters['nomeCliente']
+            item.cep = request.queryResult.outputContexts.parameters['cep']
+            item.quantidade = request.queryResult.outputContexts.parameters['recheio']
+            item.data = request.queryResult.outputContexts.parameters['data']
             await item.save()
         }
 
