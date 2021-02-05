@@ -17,24 +17,28 @@ class SolicitationController {
        */
     async store({ request, response, view }) {
         //Comentario
-        const item = new SolicitationModel()
-        item.massas = request.queryResult.parameters['massas']
-        item.recheio = request.queryResult.parameters['recheio']
-        item.nomeItem = request.queryResult.parameters['nomeItem']
-        item.nomeCliente = request.queryResult.parameters['nomeCliente']
-        item.cep = request.queryResult.parameters['cep']
-        item.quantidade = request.queryResult.parameters['recheio']
-        item.data = request.queryResult.parameters['data']
-        await item.save()
-        
+        let intentName = req.body.queryResult.intent.displayName
+
+        if (intentName == "kit.grande") {
+
+            const item = new SolicitationModel()
+            item.massas = request.queryResult.parameters['massas']
+            item.recheio = request.queryResult.parameters['recheio']
+            item.nomeItem = request.queryResult.parameters['nomeItem']
+            item.nomeCliente = request.queryResult.parameters['nomeCliente']
+            item.cep = request.queryResult.parameters['cep']
+            item.quantidade = request.queryResult.parameters['recheio']
+            item.data = request.queryResult.parameters['data']
+            await item.save()
 
 
 
-        // const data = request.all()
-        // const Solicitation = await SolicitationModel.create(data)
 
-        return response.json({ "fulfillmentText": "Primeiro Webhook teste" })
+            // const data = request.all()
+            // const Solicitation = await SolicitationModel.create(data)
 
+            return response.json({ "fulfillmentText": "Primeiro Webhook teste" })
+        }
 
     }
 
