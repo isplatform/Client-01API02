@@ -38,8 +38,8 @@ class SolicitationController {
 
 
 
-            // const data = request.all()
-            // const Solicitation = await SolicitationModel.create(data)
+            const data = request.body.all()
+            const Solicitation = await SolicitationModel.create(data)
 
             return response.json({ "fulfillmentText": "Primeiro Webhook Kit grande" })
         }
