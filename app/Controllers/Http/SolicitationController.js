@@ -17,9 +17,13 @@ class SolicitationController {
        */
     async store({ request, response, view }) {
         //Comentario
-        let intentName = req.body.queryResult.intent.displayName
+        let intentName = request.queryResult.intent.displayName
+        if(intentName == "kit.famila"){
+            return response.json({ "fulfillmentText": "Primeiro Webhook teste" })
+        }
 
-        if (intentName == "kit.grande") {
+
+         else if (intentName == "kit.grande") {
 
             const item = new SolicitationModel()
             item.massas = request.queryResult.parameters['massas']
