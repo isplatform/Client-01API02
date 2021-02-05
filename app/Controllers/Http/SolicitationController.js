@@ -17,7 +17,7 @@ class SolicitationController {
        */
     async store({ request, response, view }) {
         //Comentario
-        let intentName = request.queryResult.intent.displayName
+        let intentName = request.body.queryResult.intent.displayName
         if(intentName == "kit.famila"){
             return response.json({ "fulfillmentText": "Primeiro Webhook teste" })
         }
