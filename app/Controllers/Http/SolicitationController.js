@@ -25,21 +25,23 @@ class SolicitationController {
 
          else if (intentName == "kit.grande") {
 
-            // const item = new SolicitationModel()
-            // item.massas = request.body.queryResult.parameters['massas']
-            // item.recheio = request.body.queryResult.parameters['recheio']
-            // item.nomeItem = request.body.queryResult.parameters['nomeItem']
-            // item.nomeCliente = request.body.queryResult.parameters['nomeCliente']
-            // item.cep = request.body.queryResult.parameters['cep']
-            // item.quantidade = request.body.queryResult.parameters['recheio']
-            // item.data = request.body.queryResult.parameters['data']
-            // await item.save()
+            
+
+             const item = new SolicitationModel()
+             item.massas = request.body.queryResult.parameters('massas')
+             item.recheio = request.body.queryResult.parameters('recheio')
+             item.nomeItem = request.body.queryResult.parameters('nomeItem')
+             item.nomeCliente = request.body.queryResult.parameters('nomeCliente')
+             item.cep = request.body.queryResult.parameters('cep')
+             item.quantidade = request.body.queryResult.parameters('recheio')
+             item.data = request.body.queryResult.parameters('data')
+             await item.save()
 
 
 
 
-            const data = request.body.all()
-            const Solicitation = await SolicitationModel.create(data)
+            // const data = request.body.all()
+            // const Solicitation = await SolicitationModel.create(data)
 
             return response.json({ "fulfillmentText": "Primeiro Webhook Kit grande" })
         }
